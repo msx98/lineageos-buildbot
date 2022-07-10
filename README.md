@@ -7,6 +7,12 @@ This repository can be used to build LineageOS for:
 
 It also provides a preconfigured OTA server, and a monitor for the build process.
 
+
+## Prerequisites
+
+I tested this on Debian Buster, make sure you install Docker
+
+
 ## Services
 
 
