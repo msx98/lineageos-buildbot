@@ -4,3 +4,6 @@
 [submodule "docker-lineage-ota"]
 	path = docker-lineage-ota
 	url = https://github.com/julianxhokaxhiu/lineageota
+[submodule "docker-lineageos-monitor"]
+	path = docker-lineageos-monitor
+	url = https://github.com/gta98/docker-lineageos-monitor
