@@ -1,0 +1,43 @@
+version: '3.3'
+services:
+
+    build-herolte:
+        build: ./docker-lineage-cicd
+        volumes:
+            - ./volumes/manifests/herolte:/srv/local_manifests
+            - ./volumes/cache/herolte:/srv/ccache
+            - ./volumes/src/herolte:/srv/src
+            - ./volumes/zips:/srv/zips
+            - ./volumes/logs:/srv/logs
+            - ./volumes/keys:/srv/keys
+        environment:
+            BRANCH_NAME: lineage-19.1
+            DEVICE_LIST: herolte
+            SIGN_BUILDS: 'true'
+            SIGNATURE_SPOOFING: restricted
+            WITH_GMS: 'true'
+            INCLUDE_PROPRIETARY: 'false'
+            CUSTOM_PACKAGES: "GmsCore GsfProxy FakeStore MozillaNlpBackend NominatimNlpBackend com.google.android.maps.jar FDroid FDroidPrivilegedExtension"
+            CLEAN_OUTDIR: 'false'
+            DELETE_OLD_ZIPS: 0
+            DELETE_OLD_LOGS: 0
+            CLEAN_AFTER_BUILD: 'false'
+            ZIP_SUBDIR: 'false'
+            OTA_URL: "http://10.8.0.1:4000/api"
+
+    ota-server:
+        build: ./docker-lineage-ota
+        restart: always
+        volumes:
+            - ./volumes/zips:/var/www/html/builds/full:ro
+        ports:
+            - 4000:80
+
+    monitor:
+        build: ./docker-lineage-monitor
+        restart: always
+        volumes:
+            - ./volumes/logs:/root/logs:ro
+            - ./volumes/zips:/root/zips:ro
+        ports:
+            - 3050:3000
