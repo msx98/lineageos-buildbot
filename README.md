@@ -2,10 +2,12 @@
 
 This repository can be used to build LineageOS for:
 
-- herolte (Galaxy S7)
-- beyond0lte (Galaxy S10e)
+- herolte (Galaxy S7) (does not boot)
+- beyond0lte (Galaxy S10e) (untested)
 
 It also provides a preconfigured OTA server, and a monitor for the build process.
+
+See [problems](PROBLEMS.md) if you intend on building for your own device
 
 
 ## Prerequisites
