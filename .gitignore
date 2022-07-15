@@ -1,0 +1,9 @@
+# src should be synced
+volumes/src/
+volumes/src/*/
+
+# and obviously
+volumes/keys/
+volumes/logs/
+volumes/zips/
+volumes/cache/
