@@ -7,8 +7,6 @@ This repository can be used to build LineageOS for:
 
 It also provides a preconfigured OTA server, and a monitor for the build process.
 
-See [problems](PROBLEMS.md) if you intend on building for your own device
-
 
 ## Prerequisites
 
