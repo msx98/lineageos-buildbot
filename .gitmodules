@@ -7,3 +7,6 @@
 [submodule "docker-lineageos-monitor"]
 	path = docker-lineageos-monitor
 	url = https://github.com/gta98/docker-lineageos-monitor
+[submodule "docker-lineage-monitor"]
+	path = docker-lineage-monitor
+	url = https://github.com/gta98/docker-lineageos-monitor
