@@ -1,6 +1,6 @@
 REPODIR=$SRC_DIR/LINEAGE_19_1
 cd $REPODIR
-#bash $REPODIR/patches/picks.sh
+bash $REPODIR/patches/picks.sh
 
 echo Applying hardware/libhardware
 cd $REPODIR
