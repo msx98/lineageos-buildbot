@@ -11,7 +11,7 @@ services:
             - ./volumes/keys:/srv/keys
             - ./volumes/manifests:/srv/local_manifests
             - ./volumes/patches:/srv/patches
-            - ./volumes/userscripts:/srv/userscripts
+            - ./volumes/userscripts/herolte:/srv/userscripts
         environment:
             BRANCH_NAME: lineage-19.1
             DEVICE_LIST: herolte
