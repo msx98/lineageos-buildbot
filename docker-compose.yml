@@ -26,15 +26,21 @@ services:
             CLEAN_AFTER_BUILD: 'false'
             ZIP_SUBDIR: 'false'
             DO_REPO_SYNC: 'false'
-            OTA_URL: "http://10.8.0.1:4000/api"
+            OTA_URL: "https://my.domain.name:4443/api"
 
     ota-server:
-        build: ./docker-lineage-ota
+        build: 
+            context: ./docker-lineage-ota
+            dockerfile: Dockerfile
+            args:
+              DOMAIN_NAME: "my.domain.name"
         restart: always
         volumes:
             - ./volumes/zips:/var/www/html/builds/full:ro
+            - ../lamp/fs/etc/letsencrypt:/etc/letsencrypt
         ports:
             - 4000:80
+            - 4443:443
 
     monitor:
         build: ./docker-lineage-monitor
