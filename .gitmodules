@@ -3,10 +3,10 @@
 	url = https://github.com/lineageos4microg/docker-lineage-cicd
 [submodule "docker-lineage-ota"]
 	path = docker-lineage-ota
-	url = https://github.com/julianxhokaxhiu/lineageota
+	url = https://github.com/msx98/lineageota
 [submodule "docker-lineageos-monitor"]
 	path = docker-lineageos-monitor
-	url = https://github.com/gta98/docker-lineageos-monitor
+	url = https://github.com/msx98/docker-lineageos-monitor
 [submodule "docker-lineage-monitor"]
 	path = docker-lineage-monitor
-	url = https://github.com/gta98/docker-lineageos-monitor
+	url = https://github.com/msx98/docker-lineageos-monitor
