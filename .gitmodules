@@ -1,6 +1,7 @@
 [submodule "docker-lineage-cicd"]
 	path = docker-lineage-cicd
 	url = https://github.com/lineageos4microg/docker-lineage-cicd
+	branch = master
 [submodule "docker-lineage-ota"]
 	path = docker-lineage-ota
 	url = https://github.com/msx98/docker-lineage-ota
@@ -8,3 +9,4 @@
 [submodule "docker-lineage-monitor"]
 	path = docker-lineage-monitor
 	url = https://github.com/msx98/docker-lineageos-monitor
+	branch = main
