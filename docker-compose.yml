@@ -2,6 +2,35 @@ version: '3.3'
 
 services:
 
+    build-beyond0lte:
+        build: ./docker-lineage-cicd
+        volumes:
+            - ./volumes/lineage:/srv/src
+            - ./volumes/zips:/srv/zips
+            - ./volumes/logs:/srv/logs
+            - ./volumes/cache:/srv/ccache
+            - ./volumes/keys:/srv/keys
+            - ./volumes/manifests:/srv/local_manifests
+            - ./volumes/patches:/srv/patches
+            - ./volumes/userscripts/beyond0lte:/srv/userscripts
+        env_file:
+            - .env
+        environment:
+            BRANCH_NAME: lineage-19.1
+            DEVICE_LIST: beyond0lte
+            SIGN_BUILDS: 'true'
+            SIGNATURE_SPOOFING: restricted
+            WITH_GMS: 'true'
+            INCLUDE_PROPRIETARY: 'true'
+            CUSTOM_PACKAGES: "GmsCore GsfProxy FakeStore MozillaNlpBackend NominatimNlpBackend com.google.android.maps.jar FDroid FDroidPrivilegedExtension"
+            CLEAN_OUTDIR: 'false'
+            DELETE_OLD_ZIPS: 0
+            DELETE_OLD_LOGS: 0
+            CLEAN_AFTER_BUILD: 'false'
+            ZIP_SUBDIR: 'false'
+            DO_REPO_SYNC: 'true'
+            OTA_URL: "https://${DOMAIN_NAME}:4443/api"
+
     build-herolte:
         build: ./docker-lineage-cicd
         volumes:
