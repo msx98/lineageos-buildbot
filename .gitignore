@@ -7,3 +7,5 @@ volumes/keys/
 volumes/logs/
 volumes/zips/
 volumes/cache/
+
+.env

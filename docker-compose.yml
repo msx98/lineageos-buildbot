@@ -1,4 +1,5 @@
 version: '3.3'
+
 services:
 
     build-herolte:
@@ -12,6 +13,8 @@ services:
             - ./volumes/manifests:/srv/local_manifests
             - ./volumes/patches:/srv/patches
             - ./volumes/userscripts/herolte:/srv/userscripts
+        env_file:
+            - .env
         environment:
             BRANCH_NAME: lineage-19.1
             DEVICE_LIST: herolte
@@ -25,15 +28,17 @@ services:
             DELETE_OLD_LOGS: 0
             CLEAN_AFTER_BUILD: 'false'
             ZIP_SUBDIR: 'false'
-            DO_REPO_SYNC: 'false'
-            OTA_URL: "https://my.domain.name:4443/api"
+            DO_REPO_SYNC: 'true'
+            OTA_URL: "https://${DOMAIN_NAME}:4443/api"
 
     ota-server:
+        env_file:
+            - .env
         build: 
             context: ./docker-lineage-ota
             dockerfile: Dockerfile
             args:
-              DOMAIN_NAME: "my.domain.name"
+              DOMAIN_NAME: ${DOMAIN_NAME}
         restart: always
         volumes:
             - ./volumes/zips:/var/www/html/builds/full:ro
@@ -50,3 +55,4 @@ services:
             - ./volumes/zips:/root/zips:ro
         ports:
             - 3050:3000
+
