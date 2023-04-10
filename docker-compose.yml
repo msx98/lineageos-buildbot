@@ -28,7 +28,7 @@ services:
             DELETE_OLD_LOGS: 0
             CLEAN_AFTER_BUILD: 'false'
             ZIP_SUBDIR: 'false'
-            DO_REPO_SYNC: 'true'
+            REPO_SYNC: 'true'
             OTA_URL: "https://${DOMAIN_NAME}:4443/api"
 
     build-herolte:
@@ -57,7 +57,7 @@ services:
             DELETE_OLD_LOGS: 0
             CLEAN_AFTER_BUILD: 'false'
             ZIP_SUBDIR: 'false'
-            DO_REPO_SYNC: 'true'
+            REPO_SYNC: 'true'
             OTA_URL: "https://${DOMAIN_NAME}:4443/api"
 
     ota-server:
