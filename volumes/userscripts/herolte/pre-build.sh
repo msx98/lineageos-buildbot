@@ -1,5 +1,5 @@
 REPO_DIR=$SRC_DIR/LINEAGE_19_1
-PATCHES_DIR=/srv/patches
+PATCHES_DIR=/srv/patches/device/herolte
 
 cd $REPO_DIR
 bash $PATCHES_DIR/picks.sh
