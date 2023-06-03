@@ -60,6 +60,34 @@ services:
             REPO_SYNC: 'true'
             OTA_URL: "https://${DOMAIN_NAME}:4443/api"
 
+    build-a51:
+        build: ./docker-lineage-cicd
+        volumes:
+            - ./volumes/lineage:/srv/src
+            - ./volumes/zips:/srv/zips
+            - ./volumes/logs:/srv/logs
+            - ./volumes/cache:/srv/ccache
+            - ./volumes/keys:/srv/keys
+            - ./volumes/manifests:/srv/local_manifests
+            - ./volumes/patches:/srv/patches
+            - ./volumes/userscripts/herolte:/srv/userscripts
+        env_file:
+            - .env
+        environment:
+            BRANCH_NAME: lineage-20
+            DEVICE_LIST: a51
+            SIGN_BUILDS: 'true'
+            SIGNATURE_SPOOFING: restricted
+            WITH_GMS: 'true'
+            INCLUDE_PROPRIETARY: 'false'
+            CUSTOM_PACKAGES: "GmsCore GsfProxy FakeStore MozillaNlpBackend NominatimNlpBackend com.google.android.maps.jar FDroid FDroidPrivilegedExtension"
+            CLEAN_OUTDIR: 'false'
+            DELETE_OLD_ZIPS: 0
+            DELETE_OLD_LOGS: 0
+            CLEAN_AFTER_BUILD: 'false'
+            ZIP_SUBDIR: 'false'
+            REPO_SYNC: 'true'
+
     ota-server:
         env_file:
             - .env
