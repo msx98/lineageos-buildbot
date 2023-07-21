@@ -45,3 +45,7 @@ It also provides a preconfigured OTA server, and a monitor for the build process
   - Similarly to ota-server, enable port 3050
   - Run `docker compose up -d monitor` in the cloned respository root
   - Check http://your-address:3050/
+
+## Sync with source
+
+Run: `git submodule update --remote`
