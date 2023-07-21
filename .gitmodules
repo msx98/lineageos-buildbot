@@ -10,3 +10,6 @@
 	path = docker-lineage-monitor
 	url = https://github.com/msx98/docker-lineageos-monitor
 	branch = main
+[submodule "volumes/patches/herolte"]
+	path = volumes/patches/herolte
+	url = git@github.com:msx98/exynos8890-patches.git
