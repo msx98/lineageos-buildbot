@@ -10,7 +10,7 @@ services:
             - ./volumes/logs:/srv/logs
             - ./volumes/cache:/srv/ccache
             - ./volumes/keys:/srv/keys
-            - ./volumes/manifests:/srv/local_manifests
+            - ./volumes/manifests/beyond0lte:/srv/local_manifests
             - ./volumes/patches:/srv/patches
             - ./volumes/userscripts/beyond0lte:/srv/userscripts
         env_file:
@@ -29,9 +29,11 @@ services:
             CLEAN_AFTER_BUILD: 'false'
             ZIP_SUBDIR: 'false'
             REPO_SYNC: 'true'
-            OTA_URL: "https://${DOMAIN_NAME}:4443/api"
+            OTA_URL: "https://${DOMAIN_NAME}/api"
 
     build-herolte:
+        stdin_open: true
+        tty: true
         build: ./docker-lineage-cicd
         volumes:
             - ./volumes/lineage:/srv/src
@@ -39,15 +41,16 @@ services:
             - ./volumes/logs:/srv/logs
             - ./volumes/cache:/srv/ccache
             - ./volumes/keys:/srv/keys
-            - ./volumes/manifests:/srv/local_manifests
+            - ./volumes/manifests/herolte:/srv/local_manifests
             - ./volumes/patches:/srv/patches
+            - ./volumes/patches/herolte:/root/patches
             - ./volumes/userscripts/herolte:/srv/userscripts
         env_file:
             - .env
         environment:
             BRANCH_NAME: lineage-19.1
             DEVICE_LIST: herolte
-            SIGN_BUILDS: 'true'
+            SIGN_BUILDS: 'false'
             SIGNATURE_SPOOFING: restricted
             WITH_GMS: 'true'
             INCLUDE_PROPRIETARY: 'false'
@@ -58,7 +61,7 @@ services:
             CLEAN_AFTER_BUILD: 'false'
             ZIP_SUBDIR: 'false'
             REPO_SYNC: 'true'
-            OTA_URL: "https://${DOMAIN_NAME}:4443/api"
+            OTA_URL: "https://${DOMAIN_NAME}/api"
 
     build-a51:
         build: ./docker-lineage-cicd
@@ -68,7 +71,7 @@ services:
             - ./volumes/logs:/srv/logs
             - ./volumes/cache:/srv/ccache
             - ./volumes/keys:/srv/keys
-            - ./volumes/manifests:/srv/local_manifests
+            - ./volumes/manifests/a51:/srv/local_manifests
             - ./volumes/patches:/srv/patches
             - ./volumes/userscripts/herolte:/srv/userscripts
         env_file:
