@@ -42,15 +42,14 @@ services:
             - ./volumes/cache:/srv/ccache
             - ./volumes/keys:/srv/keys
             - ./volumes/manifests/herolte:/srv/local_manifests
-            - ./volumes/patches:/srv/patches
-            - ./volumes/patches/herolte:/root/patches
+            - ./volumes/patches/herolte:/srv/patches
             - ./volumes/userscripts/herolte:/srv/userscripts
         env_file:
             - .env
         environment:
             BRANCH_NAME: lineage-19.1
             DEVICE_LIST: herolte
-            SIGN_BUILDS: 'false'
+            SIGN_BUILDS: 'true'
             SIGNATURE_SPOOFING: restricted
             WITH_GMS: 'true'
             INCLUDE_PROPRIETARY: 'false'
@@ -60,7 +59,7 @@ services:
             DELETE_OLD_LOGS: 0
             CLEAN_AFTER_BUILD: 'false'
             ZIP_SUBDIR: 'false'
-            REPO_SYNC: 'true'
+            REPO_SYNC: 'false'
             OTA_URL: "https://${DOMAIN_NAME}/api"
 
     build-a51:
