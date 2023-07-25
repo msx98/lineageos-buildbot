@@ -11,7 +11,7 @@ services:
             - ./volumes/cache:/srv/ccache
             - ./volumes/keys:/srv/keys
             - ./volumes/manifests/beyond0lte:/srv/local_manifests
-            - ./volumes/patches:/srv/patches
+            - ./volumes/patches/beyond0lte:/srv/patches
             - ./volumes/userscripts/beyond0lte:/srv/userscripts
         env_file:
             - .env
@@ -71,8 +71,8 @@ services:
             - ./volumes/cache:/srv/ccache
             - ./volumes/keys:/srv/keys
             - ./volumes/manifests/a51:/srv/local_manifests
-            - ./volumes/patches:/srv/patches
-            - ./volumes/userscripts/herolte:/srv/userscripts
+            - ./volumes/patches/a51:/srv/patches
+            - ./volumes/userscripts/a51:/srv/userscripts
         env_file:
             - .env
         environment:
