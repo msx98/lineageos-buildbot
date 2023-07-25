@@ -8,4 +8,7 @@ volumes/logs/
 volumes/zips/
 volumes/cache/
 
+volumes/lineage/
+volumes/lineage/**
+
 .env
