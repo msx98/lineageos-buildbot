@@ -59,7 +59,7 @@ services:
             DELETE_OLD_LOGS: 0
             CLEAN_AFTER_BUILD: 'false'
             ZIP_SUBDIR: 'false'
-            REPO_SYNC: 'false'
+            REPO_SYNC: 'true'
             OTA_URL: "https://${DOMAIN_NAME}/api"
 
     build-a51:
@@ -105,6 +105,8 @@ services:
         ports:
             - 4000:80
             - 4443:443
+        networks:
+          - ota
 
     monitor:
         build: ./docker-lineage-monitor
@@ -114,4 +116,7 @@ services:
             - ./volumes/zips:/root/zips:ro
         ports:
             - 3050:3000
-
+networks:
+  ota:
+    name: ota
+    external: true
