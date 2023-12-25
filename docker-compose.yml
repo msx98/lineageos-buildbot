@@ -47,7 +47,7 @@ services:
         env_file:
             - .env
         environment:
-            BRANCH_NAME: lineage-19.1
+            BRANCH_NAME: lineage-20.0
             DEVICE_LIST: herolte
             SIGN_BUILDS: 'true'
             SIGNATURE_SPOOFING: restricted

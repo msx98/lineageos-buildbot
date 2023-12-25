@@ -11,7 +11,8 @@ It also provides a preconfigured OTA server, and a monitor for the build process
 ## Prerequisites
 
 - I tested this on Debian Buster, make sure you install Docker
-- In a new file called .env, add the following line: `DOMAIN_NAME="your.domain.name"`
+- Change the domain name in `.env` into whatever ota domain you intend to work with. Make sure that the releases there are signed with the same key as the build here.
+- Create a new network: `docker network create ota`
 
 
 ## Services
