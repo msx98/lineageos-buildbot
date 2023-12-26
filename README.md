@@ -50,3 +50,9 @@ It also provides a preconfigured OTA server, and a monitor for the build process
 ## Sync with source
 
 Run: `git submodule update --remote`
+
+## Resolving Issues
+
+- `error: ...: prior sync failed; rebase still in progress`
+
+Can be resolved by running `git am --abort; git reset --hard` in each affected path. There is also `repo forall -c "git am --abort; git reset --hard"` which might take longer.
